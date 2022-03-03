@@ -1,25 +1,36 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import styles from './PostHeading.module.css';
 
-interface IHeadingProps {
+interface HeadingProps {
+  id: number;
   title: string;
-  pubDate: Date;
+  body: string;
 }
-const PostHeading = ({ title }: IHeadingProps) => {
-  const router = useRouter();
+
+const PostHeading = ({ id, title, body }: HeadingProps) => {
+  const pubDate = new Date();
+  pubDate.setDate(pubDate.getDate() - id);
+
+  const pubDateFormated = `
+  ${pubDate.toLocaleDateString('en-US', { month: 'long' })} ${pubDate.getDay()}, ${pubDate.getFullYear()}`;
+
+  const readTime = Math.floor(Math.random() * 10 + 1);
+
+  body = body.split(' ').slice(0, 4).join(' ');
 
   return (
     <article className={styles.postHeading}>
       <header>
-        <Link href={`/${title}`}>
+        <Link href={`${id}/${title.replaceAll(' ', '-')}`}>
           <a>
             <h1>{title}</h1>
           </a>
         </Link>
-        <p>January 11, 2020 • ☕️ 5 min read</p>
+        <p>
+          {pubDateFormated} • ☕️ {readTime} min read
+        </p>
       </header>
-      <p>Found 99 vulnerabilities (84 moderately irrelevant, 15 highly irrelevant)</p>
+      <p>{body}</p>
     </article>
   );
 };
