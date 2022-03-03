@@ -32,6 +32,7 @@ body {
 p {
   font-family: 'Merriweather', 'Georgia', serif;
   font-size: 1.1rem;
+  line-height: 1.8rem;
   color: var(--color-text-secondary);
 }
 
