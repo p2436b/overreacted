@@ -1,0 +1,16 @@
+.Banner {
+  display: flex;
+  align-items: center;
+  margin: 3rem 0 0 0;
+}
+.Banner h1 {
+  font-weight: bolder;
+}
+.Banner img {
+  border-radius: 50%;
+}
+
+.Banner p {
+  margin: 0 0.5rem;
+  line-height: 1.5rem;
+}
