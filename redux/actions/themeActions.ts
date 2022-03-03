@@ -1,8 +1,6 @@
-interface IThemeActionReturn {
-  type: 'SET_DARK_THEME';
-  payload: boolean;
-}
-export const setDarkTheme = (isDark: boolean): IThemeActionReturn => {
+import { ThemeActionReturn } from '../types/themeTypes';
+
+export const setDarkTheme = (isDark: boolean): ThemeActionReturn => {
   return {
     type: 'SET_DARK_THEME',
     payload: isDark,
