@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-const useFetch = <T>(url: string): Array<T> | null => {
-  const [data, setData] = useState<Array<T> | null>(null);
+const useFetch = <T>(url: string): T | null => {
+  const [data, setData] = useState<T | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -12,7 +12,7 @@ const useFetch = <T>(url: string): Array<T> | null => {
         },
       });
 
-      if (!res.ok) throw new Error('Could not get data!');
+      if (!res.ok) console.log('Could not get data!');
 
       const data = await res.json();
       setData(data);
