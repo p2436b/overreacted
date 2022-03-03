@@ -1,4 +1,6 @@
-const themeReducer = (state = false, action: any): boolean => {
+import { ThemeActionReturn } from '../types/themeTypes';
+
+const themeReducer = (state = false, action: ThemeActionReturn): boolean => {
   switch (action.type) {
     case 'SET_DARK_THEME':
       return action.payload;
